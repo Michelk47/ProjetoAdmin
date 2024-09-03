@@ -21,6 +21,10 @@ Route::get('/', [SiteController::class, 'index']);
 Route::prefix('painel')->group(function(){
 
     Route::get('/', [AdminController::class, 'index'])->name('admin');
-    Route::get('login', [LoginController::class, 'index'])->name('login');
+    // Route::get('login', [LoginController::class, 'index'])->name('login');
 
 });
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
